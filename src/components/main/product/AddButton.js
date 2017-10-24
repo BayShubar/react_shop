@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { toAddCart } from '../../../store/action/ProductAction'
 
 class AddButton extends React.Component{
 	render(){
@@ -11,9 +12,10 @@ class AddButton extends React.Component{
 }
 
 export default connect(
-		dispatch=>({
+		state=>({}),
+		dispatch => ({
 			add: (product)=>{
-				console.log(product)
+				dispatch(toAddCart(product))
 			}
 		})
 	)(AddButton);

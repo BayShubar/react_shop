@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 
 import ProductsHolder from './product/Products'
 import DeteilHolder from './deteil/DeteilHolder'
+import CartHolder from './cart/CartHolder'
  
 class Main extends React.Component{
 
@@ -12,6 +13,7 @@ class Main extends React.Component{
 					<Switch>
 						<Route exact path="/" component={ProductsHolder} />
 						<Route exact path="/product/:id" component={DeteilHolder} />
+						<Route exact path='/cart' component={CartHolder}/>
 					</Switch>
 				</div>
 			)

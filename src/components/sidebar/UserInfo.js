@@ -1,12 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 class UserInfo extends React.Component{
 	render(){
 		return(
 				<div className="col-md-12">	
-					<div style={style.moneyInfo}>
-						 <span style={style.moneyText} className="glyphicon glyphicon-user"></span> <p style={style.moneyText}>cost: $ {this.props.cost}.00</p>
+					<div style={style.moneyInfo}><Link style={style.moneyText} to='/cart'>
+						 <span style={style.moneyText} className="glyphicon glyphicon-user">
+						 		</span> cost : $ {this.props.cost}</Link>
 					</div>
 				</div>
 			);

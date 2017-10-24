@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import { toInitialLoad } from '../../../store/action/ProductAction'
 
 import Header from './Header'
+import AddButton from '../product/AddButton'
 class DeteilHolder extends React.Component{
 
 	componentDidMount(){
@@ -23,6 +24,7 @@ class DeteilHolder extends React.Component{
 								<p>
 									{ product.character }
 								</p>
+							<AddButton product = { product }/>
 						</div>
 					</div>
 				</div>

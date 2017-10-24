@@ -11,4 +11,8 @@ export const toInitialLoad = (id)=>dispatch=>{
 }
 
 
-export const toAddCart = (product)
+export const toAddCart=(product)=>dispatch=>{
+	setTimeout(()=>{
+		 dispatch({type: 'PRODUCT_ADD_CART', data: product});
+	}, 100);
+}
