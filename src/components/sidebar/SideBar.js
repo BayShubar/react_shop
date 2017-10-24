@@ -34,7 +34,7 @@ const style = {
 	},
 	midleBar:{
 		borderRadius: '10px',	
-		height: '400px',
+		height: '450px',
 		width:'100%',
 		background: '<white></white>',
 		marginTop: '10px',

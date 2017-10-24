@@ -1,14 +1,22 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 class AddButton extends React.Component{
 	render(){
 		return(
-				<button className="btn btn-success" style={style.buyBtn}>Buy Now</button>
+				<button onClick={ () =>this.props.add( this.props.product ) } 
+								className="btn btn-success" style={style.buyBtn}>Buy Now</button>
 			);
 	}
 }
 
-export default AddButton;
+export default connect(
+		dispatch=>({
+			add: (product)=>{
+				console.log(product)
+			}
+		})
+	)(AddButton);
 
 const style = {
 	buyBtn:{

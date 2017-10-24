@@ -16,7 +16,7 @@ class Product extends React.Component{
 								<h4>{ product.name }</h4> <h5><b>${ product.price.toString() }</b></h5>
 						</div>
 						<div className="col-md-12" style={style.actionPart}>
-							<AddButton/>
+							<AddButton product = {product}/>
 							<Link to={'/product/'+product.id}><button className="btn btn-success" style={style.infoBtn}>More Info</button></Link>
 						</div>
 				</div>
@@ -37,10 +37,11 @@ const style = {
 	imgPart:{
 		height: '300px',
 		borderBottom: '1px solid #FE136B',
+		overflow: 'hidden',
 	},
 	imgProduct:{
 		height: '280px',
-		marginLeft: '25px',
+		marginLeft: '-85px',
 	},
 	infoPart:{
 		color: '#FE136B',

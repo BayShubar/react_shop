@@ -1,18 +1,23 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 class UserInfo extends React.Component{
 	render(){
 		return(
 				<div className="col-md-12">	
 					<div style={style.moneyInfo}>
-						 <span style={style.moneyText} className="glyphicon glyphicon-user"></span> <p style={style.moneyText}>cost: $250.00</p>
+						 <span style={style.moneyText} className="glyphicon glyphicon-user"></span> <p style={style.moneyText}>cost: $ {this.props.cost}.00</p>
 					</div>
 				</div>
 			);
 	}
 }
 
-export default UserInfo;
+export default connect(
+		state=>({
+			cost: state.UserReducer.cost
+		})
+	)(UserInfo);
 
 
 const style = {

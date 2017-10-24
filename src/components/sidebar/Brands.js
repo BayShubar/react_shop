@@ -9,6 +9,11 @@ class UserInfo extends React.Component{
 					<div style={style.typeChooser}>Iphone</div>
 					<div style={style.typeChooser}>Samsung</div>
 					<div style={style.typeChooser}>HTC</div>
+					<div style={style.typeChooser}>Meizu</div>
+					<div style={style.typeChooser}>Xiomi</div>
+					<div style={style.typeChooser}>LG</div>
+					<div style={style.typeChooser}>Hwawei</div>
+					<div style={style.typeChooser}>Sony</div>
 				</div>
 			);
 	}
