@@ -6,9 +6,9 @@ import Product from './Product'
 class Products extends React.Component{
 
 	render(){
-		const products = [];
-		this.props.products.map((product, index)=>{
-			products.push(<Product key = {index.toString()} product = { product }/>);
+		const products = this.props.products.map((product, index)=>{
+			if(product.name.toUpperCase().indexOf(this.props.searchWord.toUpperCase()) != -1)
+				return <Product key = {index.toString()} product = { product }/>;
 		});
 
 		return(
@@ -21,7 +21,8 @@ class Products extends React.Component{
 
 export default connect(
 		state=>({
-			products: state.ProductReducer
+			products: state.ProductReducer,
+			searchWord: state.SearchReducer.searchWord,
 		}),
 		dispatch=>({})
 	)(Products);

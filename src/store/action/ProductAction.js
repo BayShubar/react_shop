@@ -16,3 +16,9 @@ export const toAddCart=(product)=>dispatch=>{
 		 dispatch({type: 'PRODUCT_ADD_CART', data: product});
 	}, 100);
 }
+
+export const toDeleteCart = (id) =>dispatch=>{
+	setTimeout(()=>{
+		dispatch({type: 'PRODUCT_DELETE_CART', data: id})
+	}, 100)
+}

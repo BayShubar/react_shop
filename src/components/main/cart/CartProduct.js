@@ -6,8 +6,8 @@ class CartProduct extends React.Component{
 				const product = this.props.product;
 		return(
 				<div style={style.deteilHolder}>
-					<p  style={style.cartText}>{ product.name }</p> <p style={style.cartText}>$850</p>
-					<DeleteFromCart />
+					<p  style={style.cartText}>{ product.name }</p> <p style={style.cartText}>${ product.price }</p>
+					<DeleteFromCart id = {product.id}/>
 				</div>
 			);
 	}

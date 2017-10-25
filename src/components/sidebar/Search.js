@@ -1,12 +1,24 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 class Search extends React.Component{
+	constructor(props) {
+		super(props);
+		
+		this.searchWordChanged = this.searchWordChanged.bind(this);
+	}
+
+	searchWordChanged(){
+		this.props.onsearchWordChanged(this.searchWord.value);
+	}
+
 	render(){
 		return(
 				<div className="col-md-12">	
 					<div style={style.searcHolder}>
 						<div>
-							<input style={ style.searchInp } type="text" /> 
+							<input onChange={this.searchWordChanged} ref = {(input)=>{this.searchWord = input}}
+							  style={ style.searchInp } type="text" /> 
 							<button style={style.searchBtn}><span className="glyphicon glyphicon-search"></span></button>
 						</div>
 					</div>
@@ -15,7 +27,14 @@ class Search extends React.Component{
 	}
 }
 
-export default Search;
+export default connect(
+			state=>({}),
+			dispatch=>({
+				onsearchWordChanged: (word)=>{
+					dispatch({type:'ADD_SEARCH_WORD', data: word});
+				}
+			})
+		)(Search);
 
 
 const style = {

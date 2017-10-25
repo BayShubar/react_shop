@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { toDeleteCart } from '../../../store/action/ProductAction'
 
 
 class CartProduct extends React.Component{
 	render(){
 		return(
-				<button style={style.btnDelete} >Delete</button>
+				<button style={style.btnDelete} onClick={()=>{this.props.deleteProduct(this.props.id)}} >Delete</button>
 			);
 	}
 }
@@ -15,7 +16,9 @@ export default connect(
 
 		}),
 		dispatch=>({
-			
+			deleteProduct: (id)=>{
+				dispatch(toDeleteCart(id))
+			}
 		})
 	)(CartProduct);
 
