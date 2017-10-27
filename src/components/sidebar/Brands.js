@@ -1,25 +1,29 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 class UserInfo extends React.Component{
 	render(){
+			let brands = this.props.brands.map((brand, id)=>
+					<div key={id.toString()} style={brand.status ? style.typeChooserActive : style.typeChooser}
+					onClick={()=>{ this.props.onClickBrand(brand.name) }}>{ brand.name }</div>);
 		return(
 				<div className="col-md-12">	
-					<h3 style={style.info}>Brands</h3>
-					<div style={style.typeChooserActive}>All</div>
-					<div style={style.typeChooser}>Iphone</div>
-					<div style={style.typeChooser}>Samsung</div>
-					<div style={style.typeChooser}>HTC</div>
-					<div style={style.typeChooser}>Meizu</div>
-					<div style={style.typeChooser}>Xiomi</div>
-					<div style={style.typeChooser}>LG</div>
-					<div style={style.typeChooser}>Hwawei</div>
-					<div style={style.typeChooser}>Sony</div>
+					{brands}
 				</div>
 			);
 	}
 }
 
-export default UserInfo;
+export default connect(
+		state=>({
+			brands:state.SearchReducer.brands 
+		}),
+		dispatch=>({
+			onClickBrand: (name)=>{
+				dispatch({type: 'SET_BRAND', data: name})
+			}
+		})
+	)(UserInfo);
 
 
 const style = {
